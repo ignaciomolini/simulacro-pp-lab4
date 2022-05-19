@@ -16,18 +16,11 @@ const routes: Routes = [
     path: 'busqueda',
     component: BusquedaComponent
   },
-  {
-    path: 'altaActor',
-    component: ActorAltaComponent
-  },
-  {
-    path: 'altaPelicula',
-    component: PeliculaAltaComponent
-  },
-  {
-    path: 'actorPelicula',
-    component: ActorPeliculaComponent
-  }
+  {path:'altaPelicula', loadChildren: () => import('./pages/pelicula-alta/pelicula-alta.module').then(m=>m.PeliculaAltaModule)},
+
+  {path:'actorPelicula', loadChildren: () => import('./pages/actor-pelicula/actor-pelicula.module').then(m=>m.ActorPeliculaModule)},
+
+  {path:'altaActor', loadChildren: () => import('./pages/actor-alta/actor-alta.module').then(m=>m.ActorAltaModule)}
 ];
 
 @NgModule({
