@@ -21,7 +21,7 @@ export class TablaPaisesComponent implements OnInit {
           capital = [];
         }
         return {nombre: auxPais.name.common, bandera: auxPais.flags.svg, capital: capital[0], region: auxPais.region, poblacion: auxPais.population};
-      }).slice(0, 10); 
+      }).sort(()=> Math.random() - 0.5).slice(0, 10); 
     })
   }
 
