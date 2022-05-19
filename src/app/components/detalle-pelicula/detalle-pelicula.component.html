@@ -1,0 +1,20 @@
+<div *ngIf="detallePelicula; else detPel" class="card">
+  <img [src]="detallePelicula.foto" class="card-img-top" alt="foto-pelicula" />
+  <div class="card-body">
+    <h3 class="card-title">{{ detallePelicula.nombre }}</h3>
+    <p class="card-text">Tipo: {{ detallePelicula.tipo }}</p>
+    <p class="card-text">
+      Fecha de estreno: {{ detallePelicula.fechaEstreno}}
+    </p>
+    <p class="card-text">
+      Cantiadad de publico: {{ detallePelicula.cantidadPublico }}
+    </p>
+  </div>
+</div>
+<ng-template #detPel>
+  <div class="card">
+    <div class="card-body">
+      <h3 class="card-title">Elija una pelicula de la tabla</h3>
+    </div>
+  </div>
+</ng-template>

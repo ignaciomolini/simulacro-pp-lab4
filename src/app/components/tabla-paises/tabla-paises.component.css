@@ -1,0 +1,11 @@
+.scroll {
+  display: block;
+  position: relative;
+  overflow-y: scroll;
+  height: 50vh;
+}
+
+thead{ 
+    position:sticky;
+    top: 0;
+}

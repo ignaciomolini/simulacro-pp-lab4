@@ -1,0 +1,109 @@
+<div class="container pad">
+  <div class="row">
+    <div class="col-md-4 order-md-2 mb-4">
+      <app-tabla-paises
+        (paisSeleccionado)="cargarPais($event)"
+      ></app-tabla-paises>
+    </div>
+    
+    <div class="col-md-8 order-md-1 bg-light rounded">
+      <h1 class="text-center my-3">Alta Actor</h1>
+      <form [formGroup]="formActor" (ngSubmit)="guardarActor()">
+        <div class="container">
+          <div class="row">
+            <div class="col mb-3">
+              <label for="nombre" class="form-label">Nombre:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="nombre"
+                formControlName="nombre"
+              />
+              <small class="text-danger" *ngIf="this.formActor.controls['nombre'].errors?.['required'] && this.formActor.controls['nombre'].touched">
+                El nombre es requerido
+              </small>
+            </div>
+            <div class="col mb-3">
+              <label for="apellido" class="form-label">Apellido:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="apellido"
+                formControlName="apellido"
+              />
+              <small class="text-danger" *ngIf="this.formActor.controls['apellido'].errors?.['required'] && this.formActor.controls['apellido'].touched">
+                El apellido es requerido
+              </small>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label for="sexo" class="form-label">Sexo:</label>
+            </div>
+          </div>
+          <div class="row m-0 mb-3">
+            <div class="col custom-control custom-radio">
+              <input
+                type="radio"
+                class="custom-control-input"
+                id="masculino"
+                formControlName="sexo"
+                name="sexo"
+                value="masculino"
+              />
+              <label for="masculino" class="custom-control-label"
+                >Masculino</label
+              >
+            </div>
+            <div class="col custom-control custom-radio">
+              <input
+                type="radio"
+                class="custom-control-input"
+                id="femenino"
+                formControlName="sexo"
+                name="sexo"
+                value="femenino"
+              />
+              <label for="femenino" class="custom-control-label"
+                >Femenino</label
+              >
+            </div>
+          </div>
+          <div class="row">
+            <div class="col mb-3">
+              <label for="fecha" class="form-label">Fecha de nacimiento:</label>
+              <input
+                type="date"
+                class="form-control"
+                formControlName="fechaDeNacimiento"
+                id="fecha"
+              />
+              <small class="text-danger" *ngIf="this.formActor.controls['fechaDeNacimiento'].errors?.['required'] && this.formActor.controls['fechaDeNacimiento'].touched">
+                La fecha de nacimiento es requerida
+              </small>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label for="pais" class="form-label">Pais:</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="pais"
+                id="pais"
+                [attr.disabled]="true"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <button type="submit" class="btn btn-primary btn-block mt-4 mb-4" [disabled]="formActor.invalid">
+                Guardar
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

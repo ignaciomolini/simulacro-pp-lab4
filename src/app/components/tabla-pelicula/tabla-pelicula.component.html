@@ -1,0 +1,20 @@
+<table class="table table-bordered table-hover">
+  <thead class="thead-dark text-center">
+    <tr>
+      <th>Nombre</th>
+      <th>Tipo</th>
+      <th>Fecha de estreno</th>
+      <th>Cantidad de publico</th>
+      <th>Foto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="text-center" *ngFor="let pelicula of peliculas" (click)="enviarDetalles(pelicula)">
+      <td>{{ pelicula.nombre }}</td>
+      <td>{{ pelicula.tipo }}</td>
+      <td>{{ pelicula.fechaEstreno}}</td>
+      <td>{{ pelicula.cantidadPublico }}</td>
+      <td><img [src]="pelicula.foto" width="100vw" /></td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,16 @@
+<div class="scroll">
+  <table class="table table-bordered table-hover">
+    <thead class="thead-dark text-center">
+      <tr>
+        <th scope="col">Pais</th>
+        <th scope="col">Bandera</th>
+      </tr>
+    </thead>
+    <tbody class="text-center">
+      <tr *ngFor="let pais of paises" (click)="enviarPais(pais)">
+        <td>{{ pais.nombre }}</td>
+        <td><img [src]="pais.bandera" width="100vw" /></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

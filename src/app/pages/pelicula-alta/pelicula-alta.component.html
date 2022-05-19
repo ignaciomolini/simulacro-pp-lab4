@@ -1,0 +1,129 @@
+<div class="container pad">
+  <div class="row">
+    <div class="col-md-4 order-md-2 mb-4">
+      <app-tabla-actor
+        (actorSeleccionado)="cargarActor($event)"
+      ></app-tabla-actor>
+    </div>
+
+    <div class="col-md-8 order-md-1 bg-light rounded">
+      <h1 class="text-center my-3">Alta Pelicula</h1>
+      <form [formGroup]="formPelicula" (ngSubmit)="guardarPelicula()">
+        <div class="container">
+          <div class="row">
+            <div class="col mb-3">
+              <label for="nombre" class="form-label">Nombre:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="nombre"
+                formControlName="nombre"
+              />
+              <small
+                class="text-danger"
+                *ngIf="this.formPelicula.controls['nombre'].errors?.['required'] && this.formPelicula.controls['nombre'].touched"
+              >
+                El nombre es requerido
+              </small>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col mb-3">
+              <label for="tipo">Tipo</label>
+              <select class="custom-select" id="tipo" formControlName="tipo"> 
+                <option value="Terror">Terror</option>
+                <option value="Comedia">Comedia</option>
+                <option value="Amor">Amor</option>
+                <option value="Otros">Otros</option>
+              </select>
+              <small
+                class="text-danger"
+                *ngIf="this.formPelicula.controls['tipo'].errors?.['required'] && this.formPelicula.controls['tipo'].touched"
+              >
+                El tipo es requerido
+              </small>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col mb-3">
+              <label for="fechaEstreno" class="form-label"
+                >Fecha de estreno:</label
+              >
+              <input
+                type="date"
+                class="form-control"
+                formControlName="fechaEstreno"
+                id="fechaEstreno"
+              />
+              <small
+                class="text-danger"
+                *ngIf="this.formPelicula.controls['fechaEstreno'].errors?.['required'] && this.formPelicula.controls['fechaEstreno'].touched"
+              >
+                La fecha de estreno es requerida
+              </small>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col mb-3">
+              <label for="cantidadPublico" class="form-label"
+                >Cantidad de publico:</label
+              >
+              <input
+                type="number"
+                class="form-control"
+                formControlName="cantidadPublico"
+                id="cantidadPublico"
+              />
+              <small
+                class="text-danger"
+                *ngIf="this.formPelicula.controls['cantidadPublico'].errors?.['required'] && this.formPelicula.controls['cantidadPublico'].touched"
+              >
+                La cantidad de publico es requerida
+              </small>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col mb-3">
+              <label for="foto" class="form-label">Foto(URL):</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="foto"
+                id="foto"
+              />
+              <small
+                class="text-danger"
+                *ngIf="this.formPelicula.controls['foto'].errors?.['required'] && this.formPelicula.controls['foto'].touched"
+              >
+                La foto es requerida
+              </small>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label for="actor" class="form-label">Actor:</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="actor"
+                id="actor"
+                [attr.disabled]="true"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <button
+                type="submit"
+                class="btn btn-primary btn-block mt-4 mb-4"
+                [disabled]="formPelicula.invalid"
+              >
+                Guardar
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

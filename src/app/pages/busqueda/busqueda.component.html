@@ -1,0 +1,22 @@
+<main role="main">
+  <div class="jumbotron">
+    <div class="container">
+      <app-tabla-pelicula [peliculas]="this.peliculas" (peliculaSeleccionada)="cargarDetalle($event)">       
+      </app-tabla-pelicula>
+    </div>
+  </div>
+  <div class="container"> 
+    <div class="row justify-content-center">    
+      <div class="col-md-4">
+        <app-detalle-pelicula [detallePelicula]="this.detallePelicula" > </app-detalle-pelicula>
+      </div>
+    </div>
+    <hr />
+  </div> 
+</main>
+
+<footer class="container">
+  <p>© Simulacro Primer Parcial</p>
+</footer>
+
+

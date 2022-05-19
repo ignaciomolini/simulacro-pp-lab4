@@ -1,0 +1,6 @@
+<div class="container">
+    <ul class="list-group" *ngFor="let actor of actores">
+        <li class="list-group-item text-center" (click)="enviarActor(actor)">
+        Actor: <span class="h5">{{actor.nombre}} {{actor.apellido}}</span></li>
+    </ul>
+</div>
